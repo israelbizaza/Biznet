@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+
+
+input {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: rgb(248, 26, 26);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+
+}
+
+@keyframes animate {
+    0% {
+        width: 100px;
+
+    }
+
+    50% {
+        width: 400px;
+    }
+
+    100% {
+        width: 100px;
+    }
+}
+
+
+.top-content {
+    background-color: antiquewhite;
+    width: 100%;
+    padding: 0 -10px;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+}
+
+
+
+h3 {
+    height: 100%;
+    background-color: rgb(192, 5, 5);
+    line-height: 60px;
+    padding: 0 30px;
+    color: white;
+
+}
+
+label {
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+label:hover {
+    color: black;
+}
+
+
+.full-img {
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0, 9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding-top: 3em;
+}
+
+.full-img img {
+    width: 90%;
+    max-width: 500px;
+}
+
+.full-img span {
+    position: absolute;
+    background-color: black;
+    top: 10%;
+    right: 15%;
+    font-size: 30px;
+    color: rgb(209, 8, 8);
+    cursor: pointer;
+
+}
+
+.photo-gallery {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.photo-gallery img:hover {
+    transform: scale(0.8) rotate(-15deg);
+}
+
+
+
+.pic {
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px lightgray;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    transition: .5;
+}
+
+.pic::before {
+    content: "PHOTO GALLERY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 21px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+    z-index: 1;
+
+}
+
+.pic:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgb(0, 0, 0, .4);
+    transition: .3s;
+
+
+
+}
+
+/* .pic:hover::after {
+    height: 100%;
+
+}
+
+.pic:hover::before {
+    margin: 0;
+    opacity: 1;
+
+} */
+
+#check1:checked~.container .photo-gallery .pic {
+
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
+}
+
+
+#check2:checked~.container .photo-gallery .Family {
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    transition: .5s;
+
+}
+
+#check2:checked~.container .photo-gallery .staff,
+#check2:checked~.container .photo-gallery .manager {
+
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+    transition: .5s;
+
+}
+
+#check3:checked~.container .photo-gallery .staff {
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    transition: .5s;
+
+}
+
+#check3:checked~.container .photo-gallery .Family,
+#check3:checked~.container .photo-gallery .manager {
+
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+    transition: .5s;
+
+}
+
+#check4:checked~.container .photo-gallery .manager {
+
+
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+    transition: .5s;
+
+}
+
+#check4:checked~.container .photo-gallery .staff,
+#check4:checked~.container .photo-gallery .Family {
+
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+    transition: .5s;
+
+}
